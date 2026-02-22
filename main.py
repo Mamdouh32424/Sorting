@@ -1,0 +1,33 @@
+import Sorting
+import matplotlib.pyplot as plt
+import random
+
+
+def generateRandomArray(size):
+    pass
+
+
+def main():
+    sizes = [100, 500, 1000, 5000, 10000, 25000, 50000, 100000]
+    bubble_times = []
+    selection_times = []
+    insertion_times = []
+
+    for size in sizes:
+        arr = generateRandomArray(size)
+        bubble_times.append(Sorting.BubbleSort(arr))
+        selection_times.append(Sorting.SelectionSort(arr))
+        insertion_times.append(Sorting.InsertionSort(arr))
+    
+    plt.plot(sizes, bubble_times, label='Bubble Sort')
+    plt.plot(sizes, selection_times, label='Selection Sort')
+    plt.plot(sizes, insertion_times, label='Insertion Sort')
+    plt.xlabel('Array Size')
+    plt.ylabel('Time (ms)')
+    plt.show()
+
+
+
+
+if __name__ == "__main__":
+    main()
