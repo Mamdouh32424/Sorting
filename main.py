@@ -15,6 +15,8 @@ def main():
     bubble_times = []
     selection_times = []
     insertion_times = []
+    merge_times = []
+    quick_times = []
 
     for size in sizes:
         arr = generateRandomArray(size)
@@ -22,11 +24,15 @@ def main():
         bubble_times.append(Sorting.BubbleSort(arr.copy()))
         selection_times.append(Sorting.SelectionSort(arr.copy()))
         insertion_times.append(Sorting.InsertionSort(arr.copy()))
+        merge_times.append(Sorting.MergeSortTimer(arr.copy()))
+        quick_times.append(Sorting.QuickSortTimer(arr.copy()))
 
     print("Done")
     plt.plot(sizes, bubble_times, label='Bubble Sort',marker='o')
     plt.plot(sizes, selection_times, label='Selection Sort',marker='o')
     plt.plot(sizes, insertion_times, label='Insertion Sort',marker='o')
+    plt.plot(sizes, merge_times, label='Merge Sort',marker='o')
+    plt.plot(sizes, quick_times, label='Quick Sort',marker='o')
     plt.xlabel('Array Size')
     plt.ylabel('Time (ms)')
     plt.legend()
